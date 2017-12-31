@@ -1,0 +1,58 @@
+
+<div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource" matSort>
+  
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+  
+      <!-- ID Column -->
+      <ng-container matColumnDef="Date">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Release Date </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.release_date}} </mat-cell>
+      </ng-container>
+  
+      <!-- Progress Column -->
+      <ng-container matColumnDef="MovieName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Movie Name </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="voteAverage">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Vote Average </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+         {{row.vote_average}}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="Description">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+         {{row.overview}}
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="Comment">
+        <mat-header-cell *matHeaderCellDef ></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <form class="example-form">                
+          <mat-form-field class="example-full-width">
+            <textarea matInput #passInput="matInput" (change)="addcomment(row, passInput._previousNativeValue)" placeholder="Leave a comment">{{row?.comment}}</textarea> 
+          </mat-form-field>
+            </form>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <p fxLayout="row" *ngIf="empty">
+      No movie Records
+    </p>
+  </div>
+  
+  
+  <!-- Copyright 2017 Google Inc. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->

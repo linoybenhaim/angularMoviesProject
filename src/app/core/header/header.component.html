@@ -1,0 +1,18 @@
+
+<mat-toolbar class="mat-elevation-z6" color="primary">
+    <div class="header">
+        <h1 class="app-header">Movies - Angular Project</h1>
+    </div>
+
+
+    &nbsp;&nbsp;&nbsp; <button mat-button style="font-size: 17px" [matMenuTriggerFor]="appMenu">Menu</button> 
+
+    <mat-menu  #appMenu="matMenu">
+      <button mat-menu-item [routerLink]="['/home']"> Home </button>
+      <button mat-menu-item [routerLink]="['/movies']"> Most popular movies </button>
+      <button mat-menu-item [routerLink]="['/aboutme']"> About me</button>
+    </mat-menu>
+
+</mat-toolbar>
+
+
