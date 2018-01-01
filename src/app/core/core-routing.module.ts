@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListOfItemsComponent } from './list-of-items/list-of-items.component'
 import { AboutmeComponent } from './aboutme/aboutme.component'
 import { HomeComponent } from './home/home.component'
-
+import { DataCenterService } from './services/data-center.service';
 
 
 const mainRoutes: Routes = [
@@ -28,6 +28,9 @@ const mainRoutes: Routes = [
   ],
   exports: [
     RouterModule
+  ],
+  providers: [
+    DataCenterService
   ]
 })
 export class CoreRoutingModule { }

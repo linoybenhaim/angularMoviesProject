@@ -28,7 +28,7 @@ export class ListOfItemsComponent implements OnInit{
       this.getData();
     }
 
-    private getData(){
+  /*  private getData(){
       if(!localStorage.getItem("tabledata")){
         this.dataService!.getMovieData().subscribe(data =>  {
          this.dataSource.data = data;
@@ -41,8 +41,18 @@ export class ListOfItemsComponent implements OnInit{
         
     }
     }
-  
-    private addcomment(item :IMovieData , comment){
+  */
+
+      private getData(){
+
+        // this.dataSource.data = ;
+
+         this.dataService.getMovieData().subscribe(res => this.dataSource.data = res)
+        
+    
+    }
+
+  /*  private addcomment(item :IMovieData , comment){
 
        this.newDataSource = this.dataSource.data.filter((movie:IMovieData) => movie.title !== item.title);
         let newItem = item;
@@ -50,7 +60,16 @@ export class ListOfItemsComponent implements OnInit{
         this.newDataSource.push(item);
         localStorage.setItem("tabledata" ,  JSON.stringify(this.newDataSource));
         
-    }
+    }*/
+
+    /*  private addcomment(item :IMovieData , comment){
+
+       this.newDataSource = this.dataSource.data.filter((movie:IMovieData) => movie.title !== item.title);
+        let newItem = item;
+        newItem.comment = comment;
+        this.newDataSource.push(item);
+        localStorage.setItem("tabledata" ,  JSON.stringify(this.newDataSource));
+*/
 
 
   }

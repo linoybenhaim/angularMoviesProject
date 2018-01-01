@@ -8,6 +8,7 @@ import { RouterModule  } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CdkTableModule} from '@angular/cdk/table';
+import { DataCenterService } from './core/services/data-center.service';
 
 
 
