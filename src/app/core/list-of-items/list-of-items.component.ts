@@ -28,49 +28,22 @@ export class ListOfItemsComponent implements OnInit{
       this.getData();
     }
 
-  /*  private getData(){
-      if(!localStorage.getItem("tabledata")){
-        this.dataService!.getMovieData().subscribe(data =>  {
-         this.dataSource.data = data;
-         this.dataSource.sort = this.sort; 
-         localStorage.setItem("tabledata" , JSON.stringify(this.dataSource.data) )
-        })
-       }
-       else{
-         this.dataSource.data = JSON.parse(localStorage.getItem("tabledata"));
-        
-    }
-    }
-  */
-
       private getData(){
-
-        // this.dataSource.data = ;
 
          this.dataService.getMovieData().subscribe(res => this.dataSource.data = res)
         
     
     }
 
-  /*  private addcomment(item :IMovieData , comment){
+    private addcomment(item :IMovieData , comment){
 
-       this.newDataSource = this.dataSource.data.filter((movie:IMovieData) => movie.title !== item.title);
-        let newItem = item;
-        newItem.comment = comment;
-        this.newDataSource.push(item);
-        localStorage.setItem("tabledata" ,  JSON.stringify(this.newDataSource));
-        
-    }*/
-
-    /*  private addcomment(item :IMovieData , comment){
-
-       this.newDataSource = this.dataSource.data.filter((movie:IMovieData) => movie.title !== item.title);
-        let newItem = item;
-        newItem.comment = comment;
-        this.newDataSource.push(item);
-        localStorage.setItem("tabledata" ,  JSON.stringify(this.newDataSource));
-*/
-
-
+      this.dataService.cachedData.find(movie => { 
+           if(movie.title == item.title)
+          {
+             movie.comment = comment;
+            }
+          });
+        }
+         
   }
   

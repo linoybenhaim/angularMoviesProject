@@ -11,7 +11,7 @@ export class DataCenterService {
   private requestOptions = new RequestOptions({ withCredentials: true });
   private server_api = environment.movies_api_server;
   private key_api = environment.movies_api_key;
-  private cachedData;
+  public cachedData;
 
   constructor( private http: Http ) { }
 
